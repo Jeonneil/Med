@@ -37,15 +37,16 @@
   position: absolute;
   bottom: -30px;
   right: 15px;
-  background: #828EFC; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#828EFC, #74ADFA); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#828EFC, #74ADFA); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#828EFC, #74ADFA); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#828EFC, #74ADFA); /* Standard syntax */
+  background: #394458; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#394458, #6887b1); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#394458, #6887b1); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#394458, #6887b1); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#394458, #6887b1); /* Standard syntax */
   box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.6);
+  z-index: 999;
 }
 .t-background{
-  background-color: rgba(57, 68, 88, 0.9)!important;
+  background: #394458; /* For browsers that do not support gradients */
   background-blend-mode: overlay;
   height: 70px;
 }
@@ -55,7 +56,7 @@
 
 .background-top{
   background-image: url(../assets/images/6.png);
-  height: 300px;
+  height: 280px;
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -63,6 +64,12 @@
   background-color: rgba(57, 68, 88, 0.3)!important;
   background-blend-mode: overlay;
   position: relative;
+}
+.item{
+  padding: 30px;
+}
+.list{
+  padding-bottom: 60px;
 }
 
 
