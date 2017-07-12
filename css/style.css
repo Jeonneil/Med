@@ -45,7 +45,7 @@
   box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.6);
 }
 .t-background{
-  background-color: rgb(57, 68, 88)!important;
+  background-color: rgba(57, 68, 88, 0.9)!important;
   background-blend-mode: overlay;
   height: 70px;
 }
@@ -60,7 +60,7 @@
   background-size: cover;
   background-position: center;
 
-  background-color: rgba(57, 68, 88, 0.9)!important;
+  background-color: rgba(57, 68, 88, 0.3)!important;
   background-blend-mode: overlay;
   position: relative;
 }
