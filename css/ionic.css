@@ -6650,11 +6650,11 @@ progress {
         color: #fff; }
 
 .button.button-medify.button-outline {
-      border-color: #09364f;
+      border-color: #394458;
       background: transparent;
-      color: #09364f; }
-      .button.button-medift.button-outline.active, .button.button-medify.button-outline.activated {
-        background-color: #09364f;
+      color: #394458; }
+      .button.button-medify.button-outline.active, .button.button-medify.button-outline.activated {
+        background-color: #394458;
         box-shadow: none;
         color: #fff; }
 

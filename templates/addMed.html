@@ -1,13 +1,15 @@
 <ion-view  ng-controller="TodoController">
-  <div class="bar bar-header bar-color">
+  <!-- <div class="bar bar-header bar-color">
     <h1 class="title bar-color" style="font-size:22px;">Medications</h1>
+  </div> -->
+  <div class="small-container med-bg">
+  <div class="background-top">
+  <button class="btn-float" ng-click="modal.show()"><i class="icon ion-plus myicon"></i></button>
   </div>
-  
+  </div>
   <ion-content>
-    <div class="container">
- 
-  <br>
-  <br>
+    <div class="container add-list">
+
       <form data-ng-submit="addMed()" class="todo-form">
           <div class="padding">
             <center>
@@ -18,34 +20,37 @@
               <input type="text" id="quantity" ng-model="quantity" placeholder="Medicine Quantity" required/>
             </div>
             <center>
-              
+
               <button type="button" value="{{id}}" ng-show="add" class="button bar-color button-small button-medify button-outline" ng-click="save_edit(id, name, quantity)">SAVE</button>
-              
+
               <button type="button" ng-show="cancel" ng-click="canceled()" class="button bar-color button-small button-medify button-outline">CANCEL</button>
-              
+
               <input type="submit" value="ADD" ng-hide="add" class="button bar-color button-small button-medify button-outline"/>
             </center>
             </center>
           </div>
       </form>
-      <section class="app-body">
-        
+
+<br>
+<br>
+<br>
+<br>
+<br>
         <div class="card list">
-           <div class="item item-divider bar-color"><h2 style="font-size:17px; color:#ffffff;">Medicines</h2></div>
-          <div class="item item-text-wrap">
+           <div class="item item-divider "><h2 style="font-size:17px; color:#000;">Medicines</h2></div>
+
             <div class="list" data-ng-repeat="a in medlist">
-              <div class="item item-icon-right">
+              <div class="item">
                 <span>{{a['medicine_name']}}</span>
                 <span>{{a['medicine_quantity']}}</span>
                 <button class="button bar-color button-small button-medify button-outline" ng-click="edit(a.medicine_list_ID, a.medicine_name, a.medicine_quantity)">Edit</button>
                 <button class="button bar-color button-small button-medify button-outline" ng-click="delete(a.medicine_list_ID)">Delete</button>
-                <a class="button button-icon icon ion-android-delete"data-ng-click="remove($index)"></a>
+
               </div>
             </div>
-          </div>
+
         </div>
 
-      </section>
     </div>
   </ion-content>
 </ion-view>
