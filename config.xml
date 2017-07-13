@@ -10,6 +10,7 @@
   <content src="index.html"/>
   <icon src="icon.png"/>
   <access origin="*"/>
+  <preference name="fullscreen" value="false"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -20,5 +21,7 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <plugin name="cordova-plugin-splashscreen" />
+  <plugin name="cordova-plugin-vibration" />
   <plugin name="cordova-plugin-whitelist" source="npm"/>
 </widget>

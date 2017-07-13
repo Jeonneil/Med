@@ -1,8 +1,17 @@
 <ion-view ng-controller="TodoController">
-  <!-- <div class="bar bar-header bar-color">
-    <h1 class="title" style="font-size:22px; color:white;">Pill Box</h1>
+  <!-- <div class="bar bar-header">
+
   </div> -->
   <div class="small-container med-bg">
+    <div class="search-bar">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" ng-model="search.menu_name" placeholder="Search here...">
+          </label>
+        </div>
+      </div>
+
     <div class="background-top">
       <button class="btn-float" ui-sref="app.addMed"><i class="icon ion-plus myicon"></i></button>
     </div>
@@ -10,32 +19,23 @@
   <ion-content>
     <div class="container">
 
-    <ul class="list home-list">
-      <li class="item">
-      Morning
-      </li>
-
-      <li class="item">
-      Afternoon
-      </li>
-
-      <li class="item">
-      Night
-      </li>
-
-      <li class="item">
-      Evening
-      </li>
-      <li class="item">
-      Evening
-      </li>
-      <li class="item">
-      Evening
-      </li>
-      <li class="item">
-      Evening
-      </li>
-    </ul>
-  </div>
+      <ul class="list home-list">
+        <div data-ng-repeat="a in medlist track by $index">
+          <li class="item" ng-click="show(a)">
+            <div class="row">
+              <div class="col col-50">
+                <span>{{a['medicine_name']}}</span>
+              </div>
+              <div class="col col-30">
+                <span style="margin-left:15%;">{{a['medicine_quantity']}}</span>
+              </div>
+              <div class="col col-20">
+                <span style="margin-left:15%;">{{a['medicine_quantity']}}</span>
+              </div>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
   </ion-content>
 </ion-view>

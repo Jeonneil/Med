@@ -1,20 +1,17 @@
-<ion-view>
-  <div class="bar bar-header bar-color">
-    <h1 class="title" style="color:#ffffff!important;">Search Medicine</h1>
+<ion-view ng-controller="TodoController">
+  <div class="bar bar-header">
+      <i class="icon ion-arrow-left-c myicon1" ui-sref="app.alarmMed"></i>
+
   </div>
-  
-  <ion-content class="padding" style="margin-top:7%">
+
+  <ion-content class="padding" style="margin-top:13%">
     <div class="list card">
-
-
-
-
 
   <a class="item item-icon-left assertive" href="#">
     <i class="icon ion-ios-search"></i>
     <label class="item item-input">
 		<input type="text" placeholder="Search Medicine" ng-model="search">
-</label>
+    </label>
   </a>
 
 </div>

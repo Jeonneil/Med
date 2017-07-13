@@ -1,4 +1,7 @@
 <ion-view  ng-controller="TodoController">
+  <!-- <div class="bar bar-header t-background">
+    <h1 class="title" style="font-size:22px; color:white;">Pill Box</h1>
+  </div> -->
   <div class="bar bar-header" style="background:none;">
     <i class="icon ion-arrow-left-c myicon1" ui-sref="app.alarmMed"></i>
   </div>
@@ -6,7 +9,7 @@
   <ion-content>
   <div class="small-container med-bg">
   <div class="background-top">
-  
+
   </div>
   </div>
 
@@ -41,7 +44,7 @@
         <div class="card list">
            <div class="item item-divider "><h2 style="font-size:17px; color:#000;">Medicines</h2></div>
 
-            <div class="list" data-ng-repeat="a in medlist">
+            <div class="list">
               <div class="item">
                 <span>{{a['medicine_name']}}</span>
                 <span>{{a['medicine_quantity']}}</span>
