@@ -21,7 +21,7 @@ angular.module('starter.controllers',  [])
       destructiveButtonClicked: function(){
         console.log(a.medicine_list_ID);
         $http({
-          url:"http://localhost/Medify/include/delete.php",
+          url:"http://192.168.1.193/Medify/include/delete.php",
           method:"POST",
           data:{
           'id':a.medicine_list_ID
@@ -35,7 +35,7 @@ angular.module('starter.controllers',  [])
       destructiveButtonClickedEdit: function(){
         console.log(a.medicine_list_ID);
         $http({
-        url:"http://localhost/Medify/include/edit.php",
+        url:"http://192.168.1.193/Medify/include/edit.php",
         method:"POST",
         data:{
         'id':id,
@@ -70,7 +70,7 @@ $scope.addMed = function(){
 
 
   $http({
-    url:"http://localhost/Medify/include/add.php",
+    url:"http://192.168.1.193/Medify/include/add.php",
     method:"POST",
     data:{
     'addname':name,
@@ -85,7 +85,7 @@ $scope.addMed = function(){
 };
 
 $http({
-    url:"http://localhost/medify/include/getdata.php",
+    url:"http://192.168.1.193/medify/include/getdata.php",
     method:"GET"
   })
   .then(function(response){
@@ -95,7 +95,7 @@ $http({
 
 setInterval(function(){
 $http({
-    url:"http://localhost/medify/include/getdata.php",
+    url:"http://192.168.1.193/medify/include/getdata.php",
     method:"GET"
   })
   .then(function(response){
@@ -115,7 +115,7 @@ $scope.save_edit = function(id, name, quantity){
 
 
     $http({
-    url:"http://localhost/Medify/include/edit.php",
+    url:"http://192.168.1.193/Medify/include/edit.php",
     method:"POST",
     data:{
     'id':id,
@@ -141,7 +141,7 @@ $scope.canceled = function(){
 
 $scope.delete = function(id){
   $http({
-    url:"http://localhost/Medify/include/delete.php",
+    url:"http://192.168.1.193/Medify/include/delete.php",
     method:"POST",
     data:{
     'id':id
