@@ -16,7 +16,7 @@ $scope.addMed = function(){
     }
   })
   .then(function(response){
-    console.log(response);
+    // console.log(response);
     document.getElementById('name').value = "";
     document.getElementById('quantity').value = "";
   })
@@ -27,7 +27,7 @@ $http({
     method:"GET"
   })
   .then(function(response){
-    console.log(response['data']);
+    // console.log(response['data']);
     $scope.medlist = response['data'];
   })
 
@@ -37,7 +37,7 @@ $http({
     method:"GET"
   })
   .then(function(response){
-    console.log(response['data']);
+    // console.log(response['data']);
     $scope.medlist = response['data'];
   })
 },1000)
@@ -64,7 +64,7 @@ $scope.save_edit = function(id, name, quantity){
   .then(function(response){
     $scope.add = false;
     $scope.cancel = false;
-    console.log(response);
+    // console.log(response);
     document.getElementById('name').value = "";
     document.getElementById('quantity').value = "";
   })
