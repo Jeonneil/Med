@@ -20,4 +20,5 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <plugin name="cordova-plugin-whitelist" source="npm"/>
 </widget>
