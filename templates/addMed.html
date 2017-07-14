@@ -1,7 +1,4 @@
 <ion-view  ng-controller="TodoController">
-  <!-- <div class="bar bar-header t-background">
-    <h1 class="title" style="font-size:22px; color:white;">Pill Box</h1>
-  </div> -->
   <div class="bar bar-header" style="background:none;">
     <i class="icon ion-arrow-left-c myicon1" ui-sref="app.alarmMed"></i>
   </div>
@@ -9,7 +6,7 @@
   <ion-content>
   <div class="small-container med-bg">
   <div class="background-top">
-
+  <button class="btn-float" ng-click="modal.show()"><i class="icon ion-plus myicon"></i></button>
   </div>
   </div>
 
@@ -26,11 +23,11 @@
             </div>
             <center>
 
-              <button type="button" value="{{id}}" ng-show="add" class="button bar-color button-small button-medify button-outline" ng-click="save_edit(id, name, quantity)">SAVE</button>
+              <button type="button" style="width:80%;" value="{{id}}" ng-show="add" class="button bar-color button-small button-medify button-outline" ng-click="save_edit(id, name, quantity)">SAVE</button>
 
-              <button type="button" ng-show="cancel" ng-click="canceled()" class="button bar-color button-small button-medify button-outline">CANCEL</button>
+              <button type="button" style="width:80%;" ng-show="cancel" ng-click="canceled()" class="button bar-color button-small button-assertive button-outline">CANCEL</button>
 
-              <input type="submit" value="ADD" ng-hide="add" class="button bar-color button-small button-medify button-outline"/>
+              <input type="submit" style="width:80%;" value="ADD" ng-hide="add" class="button bar-color button-small button-medify button-outline"/>
             </center>
             </center>
           </div>
@@ -43,8 +40,27 @@
 <br>
         <div class="card list">
            <div class="item item-divider "><h2 style="font-size:17px; color:#000;">Medicines</h2></div>
-
-            <div class="list">
+           <ul class="list home-list1">
+             <div data-ng-repeat="a in medlist track by $index">
+               <li class="item">
+                 <div class="row">
+                   <div class="col col-50">
+                     <span>{{a['medicine_name']}}</span>
+                   </div>
+                   <div class="col col-30">
+                     <span style="margin-left:15%;">{{a['medicine_quantity']}}</span>
+                   </div>
+                   <div class="col col-10">
+                     <a ng-click="edit(a.medicine_list_ID, a.medicine_name, a.medicine_quantity)"><i class="ion ion-android-create" style="font-size:20px;"></i></a>
+                   </div>
+                   <div class="col col-10">
+                    <a ng-click="delete(a.medicine_list_ID)"><i class="ion ion-android-delete" style="font-size:20px; margin-left:20px;"></i></a>
+                   </div>
+                 </div>
+               </li>
+             </div>
+           </ul>
+            <!-- <div class="list" data-ng-repeat="a in medlist">
               <div class="item">
                 <span>{{a['medicine_name']}}</span>
                 <span>{{a['medicine_quantity']}}</span>
@@ -52,7 +68,7 @@
                 <button class="button bar-color button-small button-medify button-outline" ng-click="delete(a.medicine_list_ID)">Delete</button>
 
               </div>
-            </div>
+            </div> -->
 
         </div>
 

@@ -20,8 +20,9 @@
     <div class="container">
 
       <ul class="list home-list">
+        <!-- <div class="item item-divider "><h2 style="font-size:17px; color:#000;">Medicines</h2></div> -->
         <div data-ng-repeat="a in medlist track by $index">
-          <li class="item" ng-click="show(a)">
+          <li class="item">
             <div class="row">
               <div class="col col-50">
                 <span>{{a['medicine_name']}}</span>
@@ -29,8 +30,11 @@
               <div class="col col-30">
                 <span style="margin-left:15%;">{{a['medicine_quantity']}}</span>
               </div>
-              <div class="col col-20">
-                <span style="margin-left:15%;">{{a['medicine_quantity']}}</span>
+              <div class="col col-10">
+                <i class="ion ion-android-create" style="font-size:20px;"  ></i>
+              </div>
+              <div class="col col-10">
+                <i class="ion ion-android-delete" style="font-size:20px; margin-left:20px;"></i>
               </div>
             </div>
           </li>
