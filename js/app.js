@@ -1,10 +1,18 @@
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
 .config(function($stateProvider, $urlRouterProvider){
 $stateProvider
 .state('app', {
   url:'/app',
   abstract:true,
   templateUrl:'templates/menu.html'
+})
+.state('app.notification',{
+  url:'/notification',
+  views:{
+    'menuContent':{
+      templateUrl:'templates/notification.html',
+    }
+  }
 })
 .state('app.alarmMed',{
   url:'/alarmMed',
@@ -13,7 +21,7 @@ $stateProvider
       templateUrl:'templates/alarmMed.html',
     }
   }
-})  
+})
 .state('app.addMed',{
   url:'/addMed',
   views:{
@@ -24,7 +32,7 @@ $stateProvider
 })
 
 
-  
+
 .state('app.meansMed',{
   url:'/meansMed',
   views:{
@@ -32,7 +40,7 @@ $stateProvider
       templateUrl:'templates/meansMed.html',
     }
   }
-});  
-  
+});
+
   $urlRouterProvider.otherwise('/app/alarmMed');
 });

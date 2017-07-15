@@ -1,66 +1,80 @@
 angular.module('starter.controllers',  [])
-.controller('TodoController', function($scope, $http, $ionicActionSheet, $timeout){
+.controller('TodoController', function($scope, $http, $ionicActionSheet, $timeout, $cordovaLocalNotification){
+  $scope.addNotification = function () {
+    var now = new Date().getTime();
+    var _60_seconds_from_now = new Date(now);
+    var event = {
+      id: 1,
+      at: _60_seconds_from_now,
+      title: "Test Event",
+      text: "this is a message about the event"
+    };
 
-  // Triggered on a button click, or some other target
-  $scope.show = function(a) {
-
-    // Show the action sheet
-    var hideSheet = $ionicActionSheet.show({
-      buttons: [
-        { text: '<b>Share</b> This' },
-        { text: 'Edit' }
-      ],
-      destructiveText: 'Delete',
-      titleText: 'Modify your Medicine List',
-      cancelText: 'Cancel',
-      cancel: function() {
-           // add cancel code..
-         },
-      destructiveButtonClicked: function(){
-        console.log(a.medicine_list_ID);
-        $http({
-          url:"http://www.jeonneilblanco.esy.es/php/delete.php",
-          method:"POST",
-          data:{
-          'id':a.medicine_list_ID
-          }
-        })
-        .then(function(response){
-          return true;
-        })
-      } ,
-
-      destructiveButtonClickedEdit: function(){
-        console.log(a.medicine_list_ID);
-        $http({
-        url:"http://www.jeonneilblanco.esy.es/php/edit.php",
-        method:"POST",
-        data:{
-        'id':id,
-        'addname':name,
-        'addquantity':quantity
-        }
-      })
-      .then(function(response){
-        $scope.add = false;
-        $scope.cancel = false;
-        // console.log(response);
-        document.getElementById('name').value = "";
-        document.getElementById('quantity').value = "";
-      })
-      } ,
-
-      buttonClicked: function(index) {
-        return true;
-      }
-    });
-
-    // For example's sake, hide the sheet after two seconds
-    $timeout(function() {
-      hideSheet();
-    }, 1500);
+  
 
   };
+
+
+  // // Triggered on a button click, or some other target
+  // $scope.show = function(a) {
+  //
+  //   // Show the action sheet
+  //   var hideSheet = $ionicActionSheet.show({
+  //     buttons: [
+  //       { text: '<b>Share</b> This' },
+  //       { text: 'Edit' }
+  //     ],
+  //     destructiveText: 'Delete',
+  //     titleText: 'Modify your Medicine List',
+  //     cancelText: 'Cancel',
+  //     cancel: function() {
+  //          // add cancel code..
+  //        },
+  //     destructiveButtonClicked: function(){
+  //       console.log(a.medicine_list_ID);
+  //       $http({
+  //         url:"http://www.jeonneilblanco.esy.es/php/delete.php",
+  //         method:"POST",
+  //         data:{
+  //         'id':a.medicine_list_ID
+  //         }
+  //       })
+  //       .then(function(response){
+  //         return true;
+  //       })
+  //     } ,
+  //
+  //     destructiveButtonClickedEdit: function(){
+  //       console.log(a.medicine_list_ID);
+  //       $http({
+  //       url:"http://www.jeonneilblanco.esy.es/php/edit.php",
+  //       method:"POST",
+  //       data:{
+  //       'id':id,
+  //       'addname':name,
+  //       'addquantity':quantity
+  //       }
+  //     })
+  //     .then(function(response){
+  //       $scope.add = false;
+  //       $scope.cancel = false;
+  //       // console.log(response);
+  //       document.getElementById('name').value = "";
+  //       document.getElementById('quantity').value = "";
+  //     })
+  //     } ,
+  //
+  //     buttonClicked: function(index) {
+  //       return true;
+  //     }
+  //   });
+  //
+  //   // For example's sake, hide the sheet after two seconds
+  //   $timeout(function() {
+  //     hideSheet();
+  //   }, 1500);
+  //
+  // };
 
 $scope.addMed = function(){
   var name = document.getElementById('name').value;
