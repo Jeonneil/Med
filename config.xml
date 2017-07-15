@@ -40,7 +40,6 @@
   </feature>
   <plugin name="cordova-plugin-splashscreen" />
   <plugin name="cordova-plugin-vibration" />
-  <plugin name="cordova-plugin-localnotification" />
   <plugin name="cordova-plugin-whitelist" source="npm"/>
 
   <plugin name="cordova-plugin-whitelist" version="1" />

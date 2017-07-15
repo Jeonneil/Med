@@ -1,18 +1,18 @@
 angular.module('starter.controllers',  [])
-.controller('TodoController', function($scope, $http, $ionicActionSheet, $timeout, $cordovaLocalNotification){
-  $scope.addNotification = function () {
-    var now = new Date().getTime();
-    var _60_seconds_from_now = new Date(now);
-    var event = {
-      id: 1,
-      at: _60_seconds_from_now,
-      title: "Test Event",
-      text: "this is a message about the event"
-    };
-
-  
-
-  };
+.controller('TodoController', function($scope, $http, $ionicActionSheet, $timeout){
+  // $scope.addNotification = function () {
+  //   var now = new Date().getTime();
+  //   var _5_seconds_from_now = new Date(now + 5*1000);
+  //   var event = {
+  //     id: 1,
+  //     at: _5_seconds_from_now,
+  //     title: "Test Event",
+  //     text: "this is a message about the event"
+  //   };
+  //
+  //
+  //
+  // };
 
 
   // // Triggered on a button click, or some other target
