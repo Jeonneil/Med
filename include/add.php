@@ -12,7 +12,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
             header("Access-Control-Allow-Headers:{$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
@@ -25,10 +25,10 @@ $request  = json_decode($postdata);
 
 $addname = $request -> addname;
 $addquantity = $request -> addquantity;
-  
+
 $sql = "INSERT INTO medicine_list (medicine_name, medicine_quantity) VALUES ('$addname', '$addquantity')";
 mysqli_query($conn, $sql);
 
 echo $addname;
 echo $addquantity;
-?>  
+?>

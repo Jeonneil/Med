@@ -1,8 +1,6 @@
 angular.module('starter.controllers',  [])
 .controller('TodoController', function($scope, $http, $ionicActionSheet, $timeout){
-  $scope.shouldShowDelete = false;
-   $scope.shouldShowReorder = false;
-   $scope.listCanSwipe = true
+
   // Triggered on a button click, or some other target
   $scope.show = function(a) {
 
@@ -21,7 +19,7 @@ angular.module('starter.controllers',  [])
       destructiveButtonClicked: function(){
         console.log(a.medicine_list_ID);
         $http({
-          url:"http://192.168.8.100/Medify/include/delete.php",
+          url:"http://www.jeonneilblanco.esy.es/php/delete.php",
           method:"POST",
           data:{
           'id':a.medicine_list_ID
@@ -35,7 +33,7 @@ angular.module('starter.controllers',  [])
       destructiveButtonClickedEdit: function(){
         console.log(a.medicine_list_ID);
         $http({
-        url:"http://192.168.8.100/Medify/include/edit.php",
+        url:"http://www.jeonneilblanco.esy.es/php/edit.php",
         method:"POST",
         data:{
         'id':id,
@@ -70,7 +68,7 @@ $scope.addMed = function(){
 
 
   $http({
-    url:"http://192.168.8.100/Medify/include/add.php",
+    url:"http://www.jeonneilblanco.esy.es/php/add.php",
     method:"POST",
     data:{
     'addname':name,
@@ -84,18 +82,18 @@ $scope.addMed = function(){
   })
 };
 
-$http({
-    url:"http://192.168.8.100/medify/include/getdata.php",
-    method:"GET"
-  })
-  .then(function(response){
-    // console.log(response['data']);
-    $scope.medlist = response['data'];
-  })
+// $http({
+//     url:"http://localhost/medify/include/getdata.php",
+//     method:"GET"
+//   })
+//   .then(function(response){
+//     // console.log(response['data']);
+//     $scope.medlist = response['data'];
+//   })
 
 setInterval(function(){
 $http({
-    url:"http://192.168.8.100/medify/include/getdata.php",
+    url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
     method:"GET"
   })
   .then(function(response){
@@ -115,7 +113,7 @@ $scope.save_edit = function(id, name, quantity){
 
 
     $http({
-    url:"http://192.168.8.100/Medify/include/edit.php",
+    url:"http://www.jeonneilblanco.esy.es/php/edit.php",
     method:"POST",
     data:{
     'id':id,
@@ -141,7 +139,7 @@ $scope.canceled = function(){
 
 $scope.delete = function(id){
   $http({
-    url:"http://192.168.8.100/Medify/include/delete.php",
+    url:"http://www.jeonneilblanco.esy.es/php/delete.php",
     method:"POST",
     data:{
     'id':id
