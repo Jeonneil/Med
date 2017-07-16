@@ -1,29 +1,6 @@
 angular.module('starter.controllers',  [])
-.controller('TodoController', function($scope, $http, $ionicActionSheet, $timeout, $cordovaLocalNotification){
-  $scope.addNotification = function () {
-    var now = new Date().getTime();
-    var _60_seconds_from_now = new Date(now + 5 * 1000);
-    var event = {
-      id: 1,
-      at: _60_seconds_from_now,
-      title: "Test Event",
-      text: "this is a message about the event"
-    };
+.controller('TodoController', function($scope, $http, $ionicActionSheet, $timeout){
 
-    document.addEventListener("deviceready", function () {
-      $cordovaLocalNotification.schedule(event).then(function () {
-        console.log("local add : success");
-      });
-
-    }, false);
-
-  };
-
-  document.addEventListener("deviceready", function () {
-    $rootScope.$on("$cordovaLocalNotification:trigger", function (event, notification, state) {
-      console.log("notification id:" + notification.id + " state: " + state);
-    });
-  }, false)
   // // Triggered on a button click, or some other target
   // $scope.show = function(a) {
   //
@@ -91,7 +68,8 @@ $scope.addMed = function(){
 
 
   $http({
-    url:"http://www.jeonneilblanco.esy.es/php/add.php",
+    // url:"http://www.jeonneilblanco.esy.es/php/add.php",
+    url:"http://localhost/medify/include/add.php",
     method:"POST",
     data:{
     'addname':name,
@@ -116,7 +94,8 @@ $scope.addMed = function(){
 
 setInterval(function(){
 $http({
-    url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
+    // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
+    url:"http://localhost/medify/include/getdata.php",
     method:"GET"
   })
   .then(function(response){
@@ -136,7 +115,8 @@ $scope.save_edit = function(id, name, quantity){
 
 
     $http({
-    url:"http://www.jeonneilblanco.esy.es/php/edit.php",
+    // url:"http://www.jeonneilblanco.esy.es/php/edit.php",
+    url:"http://localhost/medify/include/edit.php",
     method:"POST",
     data:{
     'id':id,
@@ -162,7 +142,8 @@ $scope.canceled = function(){
 
 $scope.delete = function(id){
   $http({
-    url:"http://www.jeonneilblanco.esy.es/php/delete.php",
+    // url:"http://www.jeonneilblanco.esy.es/php/delete.php",
+    url:"http://localhost/medify/include/delete.php",
     method:"POST",
     data:{
     'id':id
