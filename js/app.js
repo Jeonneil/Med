@@ -6,14 +6,14 @@ $stateProvider
   abstract:true,
   templateUrl:'templates/menu.html'
 })
-.state('app.notification',{
-  url:'/notification',
-  views:{
-    'menuContent':{
-      templateUrl:'templates/notification.html',
-    }
-  }
-})
+// .state('app.notification',{
+//   url:'/notification',
+//   views:{
+//     'menuContent':{
+//       templateUrl:'templates/notification.html',
+//     }
+//   }
+// })
 .state('app.alarmMed',{
   url:'/alarmMed',
   views:{

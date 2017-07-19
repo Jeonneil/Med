@@ -1,6 +1,15 @@
 angular.module('starter.controllers',  [])
 .controller('TodoController', function($scope, $http, $ionicActionSheet, $timeout){
 
+  $http({
+      // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
+      url:"http://localhost/medify/include/getdata.php",
+      method:"GET"
+    })
+    .then(function(response){
+      // console.log(response['data']);
+      $scope.medlist = response['data'];
+    })
   // // Triggered on a button click, or some other target
   // $scope.show = function(a) {
   //
@@ -80,6 +89,15 @@ $scope.addMed = function(){
     // console.log(response);
     document.getElementById('name').value = "";
     document.getElementById('quantity').value = "";
+    $http({
+        // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
+        url:"http://localhost/medify/include/getdata.php",
+        method:"GET"
+      })
+      .then(function(response){
+        // console.log(response['data']);
+        $scope.medlist = response['data'];
+      })
   })
 };
 
@@ -92,17 +110,17 @@ $scope.addMed = function(){
 //     $scope.medlist = response['data'];
 //   })
 
-setInterval(function(){
-$http({
-    // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
-    url:"http://localhost/medify/include/getdata.php",
-    method:"GET"
-  })
-  .then(function(response){
-    // console.log(response['data']);
-    $scope.medlist = response['data'];
-  })
-},1000)
+// setInterval(function(){
+// $http({
+//     // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
+//     url:"http://localhost/medify/include/getdata.php",
+//     method:"GET"
+//   })
+//   .then(function(response){
+//     // console.log(response['data']);
+//     $scope.medlist = response['data'];
+//   })
+// },1000)
 
 $scope.edit = function(id, name, quantity){
   $scope.add = true;
@@ -125,6 +143,15 @@ $scope.save_edit = function(id, name, quantity){
     }
   })
   .then(function(response){
+    $http({
+        // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
+        url:"http://localhost/medify/include/getdata.php",
+        method:"GET"
+      })
+      .then(function(response){
+        // console.log(response['data']);
+        $scope.medlist = response['data'];
+      })
     $scope.add = false;
     $scope.cancel = false;
     // console.log(response);
@@ -150,33 +177,15 @@ $scope.delete = function(id){
     }
   })
   .then(function(response){
-
+    $http({
+        // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
+        url:"http://localhost/medify/include/getdata.php",
+        method:"GET"
+      })
+      .then(function(response){
+        // console.log(response['data']);
+        $scope.medlist = response['data'];
+      })
   })
 }
-})
-.controller('MyController', function($scope, $ionicModal) {
-  $ionicModal.fromTemplateUrl('my-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-  $scope.openModal = function() {
-    $scope.modal.show();
-  };
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-  };
-  // Cleanup the modal when we're done with it!
-  $scope.$on('$destroy', function() {
-    $scope.modal.remove();
-  });
-  // Execute action on hide modal
-  $scope.$on('modal.hidden', function() {
-    // Execute action
-  });
-  // Execute action on remove modal
-  $scope.$on('modal.removed', function() {
-    // Execute action
-  });
 });

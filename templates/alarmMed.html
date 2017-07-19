@@ -31,10 +31,10 @@
                 <span style="margin-left:15%;">{{a['medicine_quantity']}}</span>
               </div>
               <div class="col col-10">
-                <i class="ion ion-android-create" style="font-size:20px;"  ></i>
+                <a ng-click="edit(a.medicine_list_ID, a.medicine_name, a.medicine_quantity)"><i class="ion ion-android-create" style="font-size:20px;" ui-sref="app.addMed"></i></a>
               </div>
               <div class="col col-10">
-                <i class="ion ion-android-delete" style="font-size:20px; margin-left:20px;"></i>
+                <a ng-click="delete(a.medicine_list_ID)"><i class="ion ion-android-delete" style="font-size:20px; margin-left:20px;"></i></a>
               </div>
             </div>
           </li>
