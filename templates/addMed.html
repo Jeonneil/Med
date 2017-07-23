@@ -15,19 +15,19 @@
       <form data-ng-submit="addMed()" class="todo-form">
           <div class="padding">
             <center>
-            <div class="input-group">
+            <div class="input-group animated slideInLeft">
               <input type="text" id="name"  ng-model="name" placeholder="Medicine Name" required/>
             </div>
-            <div class="input-group">
+            <div class="input-group animated slideInRight">
               <input type="text" id="quantity" ng-model="quantity" placeholder="Medicine Quantity" required/>
             </div>
             <center>
 
-              <button type="button" style="width:80%;" value="{{id}}" ng-show="add" class="button bar-color button-small button-medify button-outline" ng-click="save_edit(id, name, quantity)">SAVE</button>
+              <button type="button" style="width:80%;" value="{{id}}" ng-show="add" class="button bar-color button-small button-medify button-outline animated pulse" ng-click="save_edit(id, name, quantity)">SAVE</button>
 
               <button type="button" style="width:80%;" ng-show="cancel" ng-click="canceled()" class="button bar-color button-small button-assertive button-outline">CANCEL</button>
 
-              <input type="submit" style="width:80%;" value="ADD" ng-hide="add" class="button bar-color button-small button-medify button-outline"/>
+              <input type="submit" style="width:80%;" value="ADD" ng-hide="add" class="button bar-color button-small button-medify button-outline animated pulse"/>
             </center>
             </center>
           </div>
@@ -38,8 +38,8 @@
 <br>
 <br>
 <br>
-        <div class="card list">
-           <div class="item item-divider "><h2 style="font-size:17px; color:#000;">Medicines</h2></div>
+
+           <!-- <div class="item item-divider "><h2 style="font-size:17px; color:#000;">Medicines</h2></div> -->
            <ul class="list home-list1">
              <div data-ng-repeat="a in medlist track by $index">
                <li class="item">
@@ -70,7 +70,6 @@
               </div>
             </div> -->
 
-        </div>
 
     </div>
   </ion-content>

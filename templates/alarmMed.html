@@ -2,19 +2,23 @@
   <!-- <div class="bar bar-header">
 
   </div> -->
+  <!-- <i class="icon ion-arrow-left-c myicon1" ui-sref="app.alarmMed"></i> -->
   <div class="small-container med-bg">
-    <div class="search-bar">
-        <div class="list list-inset">
-          <label class="item item-input">
-            <i class="icon ion-search placeholder-icon"></i>
-            <input type="text" ng-model="search.menu_name" placeholder="Search here...">
-          </label>
-        </div>
-      </div>
 
-    <div class="background-top">
-      <button class="btn-float" ui-sref="app.addMed"><i class="icon ion-plus myicon"></i></button>
-    </div>
+      <!-- <div class="search-bar">
+        <div class="list list-inset" ng-controller="">
+          <label class="item item-input  animated bounceInUp">
+            <input type="text" ng-model="search" placeholder="Search here..." class=" animated bounceInUp">
+          </label>
+
+        </div>
+
+      </div> -->
+        <div class="background-top">
+
+      <!-- <button class="btn-float" ui-sref="app.addMed"><i class="icon ion-plus myicon"></i></button> -->
+        </div>
+
   </div>
   <ion-content>
     <div class="container">
@@ -22,7 +26,7 @@
       <ul class="list home-list">
         <!-- <div class="item item-divider "><h2 style="font-size:17px; color:#000;">Medicines</h2></div> -->
         <div data-ng-repeat="a in medlist track by $index">
-          <li class="item">
+          <li class="item animated slideInLeft">
             <div class="row">
               <div class="col col-50">
                 <span>{{a['medicine_name']}}</span>
@@ -31,7 +35,7 @@
                 <span style="margin-left:15%;">{{a['medicine_quantity']}}</span>
               </div>
               <div class="col col-10">
-                <a ng-click="edit(a.medicine_list_ID, a.medicine_name, a.medicine_quantity)"><i class="ion ion-android-create" style="font-size:20px;" ui-sref="app.addMed"></i></a>
+                <a ng-click="edit(a.medicine_list_ID, a.medicine_name, a.medicine_quantity)"  ui-sref="app.addMed"><i class="ion ion-android-create" style="font-size:20px;"></i></a>
               </div>
               <div class="col col-10">
                 <a ng-click="delete(a.medicine_list_ID)"><i class="ion ion-android-delete" style="font-size:20px; margin-left:20px;"></i></a>

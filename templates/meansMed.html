@@ -1,29 +1,47 @@
-<ion-view ng-controller="TodoController">
-  <div class="bar bar-header">
-      <i class="icon ion-arrow-left-c myicon1" ui-sref="app.alarmMed"></i>
+<ion-view ng-controller="SearchController">
+  <!-- <div class="bar bar-header">
 
-  </div>
-
-  <ion-content class="padding" style="margin-top:13%">
+  </div> -->
+  <div class="small-container med-bg">
     <div class="search-bar">
         <div class="list list-inset">
-          <label class="item item-input">
+          <label class="item item-input animated bounceInUp">
             <i class="icon ion-search placeholder-icon"></i>
-            <input type="text" ng-model="search.menu_name" placeholder="Search here...">
+            <input type="text" ng-model="search" placeholder="Search here...">
           </label>
+            <!-- <i class="icon ion-search btn1-float animated bounceInUp" ui-sref="app.meansMed"></i> -->
         </div>
       </div>
-    <!-- <div class="list card">
 
-  <a class="item item-icon-left assertive" href="#">
-    <i class="icon ion-ios-search"></i>
-    <label class="item item-input">
-		<input type="text" placeholder="Search Medicine" ng-model="search">
-    </label>
-  </a>
+    <div class="background-top">
+      <!-- <button class="btn-float" ui-sref="app.addMed"><i class="icon ion-plus myicon"></i></button> -->
+    </div>
+  </div>
+  <ion-content>
 
-</div> -->
+      <div class="list card" ng-repeat="x in searchlist filter:search">
 
+  <div class="item item-avatar">
 
-</ion-content>
+    <h2>Marty McFly</h2>
+    <p>November 05, 1955</p>
+  </div>
+
+  <div class="item item-body">
+
+    <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+    <p>
+      <a href="#" class="subdued">1 Like</a>
+      <a href="#" class="subdued">5 Comments</a>
+    </p>
+  </div>
+
+</div>
+
+  div>
+  </ion-content>
 </ion-view>

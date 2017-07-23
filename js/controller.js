@@ -2,75 +2,17 @@ angular.module('starter.controllers',  [])
 .controller('TodoController', function($scope, $http){
 
   $http({
-    url:"http://192.168.8.100/medify/include/getdata.php",
+//    url:"http://192.168.8.100/medify/include/getdata.php",
       // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
-      // url:"http://localhost/medify/include/getdata.php",
+       url:"http://localhost/medify/include/getdata.php",
       method:"GET"
     })
     .then(function(response){
       // console.log(response['data']);
       $scope.medlist = response['data'];
     })
-  // // Triggered on a button click, or some other target
-  // $scope.show = function(a) {
-  //
-  //   // Show the action sheet
-  //   var hideSheet = $ionicActionSheet.show({
-  //     buttons: [
-  //       { text: '<b>Share</b> This' },
-  //       { text: 'Edit' }
-  //     ],
-  //     destructiveText: 'Delete',
-  //     titleText: 'Modify your Medicine List',
-  //     cancelText: 'Cancel',
-  //     cancel: function() {
-  //          // add cancel code..
-  //        },
-  //     destructiveButtonClicked: function(){
-  //       console.log(a.medicine_list_ID);
-  //       $http({
-  //         url:"http://www.jeonneilblanco.esy.es/php/delete.php",
-  //         method:"POST",
-  //         data:{
-  //         'id':a.medicine_list_ID
-  //         }
-  //       })
-  //       .then(function(response){
-  //         return true;
-  //       })
-  //     } ,
-  //
-  //     destructiveButtonClickedEdit: function(){
-  //       console.log(a.medicine_list_ID);
-  //       $http({
-  //       url:"http://www.jeonneilblanco.esy.es/php/edit.php",
-  //       method:"POST",
-  //       data:{
-  //       'id':id,
-  //       'addname':name,
-  //       'addquantity':quantity
-  //       }
-  //     })
-  //     .then(function(response){
-  //       $scope.add = false;
-  //       $scope.cancel = false;
-  //       // console.log(response);
-  //       document.getElementById('name').value = "";
-  //       document.getElementById('quantity').value = "";
-  //     })
-  //     } ,
-  //
-  //     buttonClicked: function(index) {
-  //       return true;
-  //     }
-  //   });
-  //
-  //   // For example's sake, hide the sheet after two seconds
-  //   $timeout(function() {
-  //     hideSheet();
-  //   }, 1500);
-  //
-  // };
+
+
 
 $scope.addMed = function(){
   var name = document.getElementById('name').value;
@@ -78,9 +20,9 @@ $scope.addMed = function(){
 
 
   $http({
-        url:"http://192.168.8.100/medify/include/add.php",
+//        url:"http://192.168.8.100/medify/include/add.php",
     // url:"http://www.jeonneilblanco.esy.es/php/add.php",
-    // url:"http://localhost/medify/include/add.php",
+     url:"http://localhost/medify/include/add.php",
     method:"POST",
     data:{
     'addname':name,
@@ -92,9 +34,9 @@ $scope.addMed = function(){
     document.getElementById('name').value = "";
     document.getElementById('quantity').value = "";
     $http({
-          url:"http://192.168.8.100/medify/include/getdata.php",
+//          url:"http://192.168.8.100/medify/include/getdata.php",
         // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
-        // url:"http://localhost/medify/include/getdata.php",
+         url:"http://localhost/medify/include/getdata.php",
         method:"GET"
       })
       .then(function(response){
@@ -136,9 +78,9 @@ $scope.save_edit = function(id, name, quantity){
 
 
     $http({
-          url:"http://192.168.8.100/medify/include/edit.php",
+//          url:"http://192.168.8.100/medify/include/edit.php",
     // url:"http://www.jeonneilblanco.esy.es/php/edit.php",
-    // url:"http://localhost/medify/include/edit.php",
+     url:"http://localhost/medify/include/edit.php",
     method:"POST",
     data:{
     'id':id,
@@ -148,9 +90,9 @@ $scope.save_edit = function(id, name, quantity){
   })
   .then(function(response){
     $http({
-          url:"http://192.168.8.100/medify/include/getdata.php",
+//          url:"http://192.168.8.100/medify/include/getdata.php",
         // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
-        // url:"http://localhost/medify/include/getdata.php",
+         url:"http://localhost/medify/include/getdata.php",
         method:"GET"
       })
       .then(function(response){
@@ -174,9 +116,9 @@ $scope.canceled = function(){
 
 $scope.delete = function(id){
   $http({
-        url:"http://192.168.8.100/medify/include/delete.php",
+//        url:"http://192.168.8.100/medify/include/delete.php",
     // url:"http://www.jeonneilblanco.esy.es/php/delete.php",
-    // url:"http://localhost/medify/include/delete.php",
+     url:"http://localhost/medify/include/delete.php",
     method:"POST",
     data:{
     'id':id
@@ -184,9 +126,9 @@ $scope.delete = function(id){
   })
   .then(function(response){
     $http({
-          url:"http://192.168.8.100/medify/include/getdata.php",
+//          url:"http://192.168.8.100/medify/include/getdata.php",
         // url:"http://www.jeonneilblanco.esy.es/php/getdata.php",
-        // url:"http://localhost/medify/include/getdata.php",
+         url:"http://localhost/medify/include/getdata.php",
         method:"GET"
       })
       .then(function(response){
@@ -194,5 +136,17 @@ $scope.delete = function(id){
         $scope.medlist = response['data'];
       })
   })
+}
+})
+
+.controller('SearchController', function($scope, $http){
+$scope.search = function(id){
+$http({
+url:"http://localhost/medify/include/search.php",
+method:"GET"
+})
+.then(function(response){
+  $scope.searchlist = response['data'];
+})
 }
 });

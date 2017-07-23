@@ -49,8 +49,20 @@
   box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.6);
   z-index: 999;
 }
+.btn1-float{
+  height: 64px;
+  width: 64px;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  bottom: -20px;
+  right: -32px;
+  z-index: 999;
+  font-size: 40px;
+}
 .t-background{
-  background: #394458; /* For browsers that do not support gradients */
+  background: #396375; /* For browsers that do not support gradients */
   box-shadow: 3px 5px 10px rgba(0, 0, 0, 0.6);
   background-blend-mode: overlay;
   height: 70px;
@@ -74,7 +86,7 @@
 }
 
 .background-top{
-  background-image: url(../assets/images/6.png);
+  background-image: url(../assets/images/8.png);
   height: 250px;
   width: 100%;
   background-size: cover;
@@ -89,6 +101,7 @@
 }
 .item-input{
   padding: 7px;
+  width: 100%;
 }
 .med-bg {
   position: fixed;
