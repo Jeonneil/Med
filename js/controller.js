@@ -269,7 +269,7 @@ $scope.delete1 = function(id){
 .controller('SearchController', function($scope, $http){
 
 $http({
-url:"http://localhost/medify/include/search.php",
+url:"http://192.168.8.101/medify/include/search.php",
 method:"GET"
 })
 .then(function(response){
