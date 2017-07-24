@@ -12,7 +12,7 @@ if (isset($_SERVER['HTTP_ORIGIN'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
-            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
+            header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 
         if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
             header("Access-Control-Allow-Headers:{$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
@@ -24,13 +24,9 @@ $postdata = file_get_contents("php://input");
 $request  = json_decode($postdata);
 
 $id = $request -> id;
-$addname = $request -> addname;
-$addquantity = $request -> addquantity;
 
-$sql = "UPDATE medicine_list SET medicine_name='$addname', medicine_quantity = '$addquantity' WHERE medicine_list_ID = '$id' ";
+
+$sql = "DELETE FROM alarm_list WHERE alarm_ID = '$id' ";
 mysqli_query($conn, $sql);
 
-echo $addname;
-echo $addquantity;
-echo $id;
 ?>

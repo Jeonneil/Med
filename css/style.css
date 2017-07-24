@@ -12,6 +12,7 @@
   border: 1px solid gray;
   border-color: #09364f;
 }
+
 .input-group{
   margin: 20px 0px 15px 0px;
 }
@@ -123,6 +124,11 @@
 
 .add-list{
   padding-top: 280px;
+  padding-bottom: 60px;
+
+}
+.add-list1{
+  padding-top: 245px;
   padding-bottom: 60px;
 
 }
