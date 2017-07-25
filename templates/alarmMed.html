@@ -20,16 +20,14 @@
           <div class="input-group animated slideInRight">
            <h4>Medicine Name:</h4><input type="text" id="medname"  ng-model="medname" required/>
           </div>
-          <button class="button button-block button-royal" ng-click="alert()">
-					Beep
-				</button>
+
           <center>
 
             <button type="button" style="width:80%;" value="{{id}}" ng-show="add1" class="button bar-color button-small button-medify button-outline animated pulse" ng-click="save_edit1(id, timealarm, medname)">SAVE</button>
 
             <button type="button" style="width:80%;" ng-show="cancel1" ng-click="canceled1()" class="button bar-color button-small button-assertive button-outline">CANCEL</button>
 
-              <input type="submit" style="width:80%;" value="ADD" ng-hide="add1" class="button bar-color button-small button-medify button-outline animated pulse"/>
+              <input type="submit" style="width:80%;" value="ADD" ng-hide="add1" class="button bar-color button-small button-medify button-outline animated pulse" ng-click="alert()"/>
           </center>
           </center>
         </div>
