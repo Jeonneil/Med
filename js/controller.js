@@ -26,7 +26,7 @@ angular.module('starter.controllers', ['ngCordova'])
 
     $scope.alert = function() {
       console.log('beep');
-      $cordovaDialogs.beep(3);
+      $cordovaDialogs.beep(1);
       $scope.action = "Beep";
     };
 
