@@ -94,34 +94,34 @@
     <icon src="icon.png" gap:platform="winphone"   gap:role="background" />
 
     <!-- Define app splash screen for each platform. -->
-    <gap:splash src="res/screen/android/logo-square.jpg"      gap:platform="android" gap:qualifier="port-ldpi" />
-    <gap:splash src="res/screen/android/logo-square.jpg"      gap:platform="android" gap:qualifier="port-mdpi" />
-    <gap:splash src="res/screen/android/logo-square.jpg"       gap:platform="android" gap:qualifier="port-hdpi" />
-    <gap:splash src="res/screen/android/logo-square.jpg"      gap:platform="android" gap:qualifier="port-xhdpi" />
-    <gap:splash src="res/screen/android/logo-square.jpg"              gap:platform="blackberry" />
-    <gap:splash src="res/screen/android/logo-square.jpg"         gap:platform="ios"     width="320" height="480" />
-    <gap:splash src="res/screen/android/logo-square.jpg"      gap:platform="ios"     width="640" height="960" />
-    <gap:splash src="res/screen/android/logo-square.jpg" gap:platform="ios"     width="640" height="1136" />
-    <gap:splash src="res/screen/android/logo-square.jpg"           gap:platform="ios"     width="768" height="1024" />
-    <gap:splash src="res/screen/android/logo-square.jpg"          gap:platform="ios"     width="1024" height="768" />
-    <gap:splash src="res/screen/android/logo-square.jpg"      gap:platform="winphone" />
+    <gap:splash src="res/screen/android/logo-square.png"      gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="res/screen/android/logo-square.png"      gap:platform="android" gap:qualifier="port-mdpi" />
+    <gap:splash src="res/screen/android/logo-square.png"       gap:platform="android" gap:qualifier="port-hdpi" />
+    <gap:splash src="res/screen/android/logo-square.png"      gap:platform="android" gap:qualifier="port-xhdpi" />
+    <gap:splash src="res/screen/android/logo-square.png"              gap:platform="blackberry" />
+    <gap:splash src="res/screen/android/logo-square.png"         gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="res/screen/android/logo-square.png"      gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="res/screen/android/logo-square.png" gap:platform="ios"     width="640" height="1136" />
+    <gap:splash src="res/screen/android/logo-square.png"           gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="res/screen/android/logo-square.png"          gap:platform="ios"     width="1024" height="768" />
+    <gap:splash src="res/screen/android/logo-square.png"      gap:platform="winphone" />
 
     <gap:config-file platform="ios" parent="CFBundleShortVersionString">
     <string>100</string>
     </gap:config-file>
 
     <platform name="android">
-      <splash src="res/screen/android/logo-square.jpg"  density="land-hdpi"/>
-      <splash src="res/screen/android/logo-square.jpg"  density="land-ldpi"/>
-      <splash src="res/screen/android/logo-square.jpg"  density="land-mdpi"/>
-      <splash src="res/screen/android/logo-square.jpg"  density="port-hdpi"/>
-      <splash src="res/screen/android/logo-square.jpg"  density="port-ldpi"/>
-      <splash src="res/screen/android/logo-square.jpg"  density="port-mdpi"/>
-      <splash src="res/screen/android/logo-square.jpg"  density="port-xhdpi"/>
+      <splash src="res/screen/android/logo-square.png"  density="land-hdpi"/>
+      <splash src="res/screen/android/logo-square.png"  density="land-ldpi"/>
+      <splash src="res/screen/android/logo-square.png"  density="land-mdpi"/>
+      <splash src="res/screen/android/logo-square.png"  density="port-hdpi"/>
+      <splash src="res/screen/android/logo-square.png"  density="port-ldpi"/>
+      <splash src="res/screen/android/logo-square.png"  density="port-mdpi"/>
+      <splash src="res/screen/android/logo-square.png"  density="port-xhdpi"/>
     </platform>
 
     <platform name="browser">
-      <preference name="SplashScreen" value="res/screen/android/logo-square.jpg" /> <!-- defaults to "/img/logo-square.jpg" -->
+      <preference name="SplashScreen" value="res/screen/android/logo-square.png" /> <!-- defaults to "/img/logo-square.png" -->
       <preference name="SplashScreenDelay" value="3000" /> <!-- defaults to "3000" -->
       <preference name="SplashScreenBackgroundColor" value="black" /> <!-- defaults to "#464646" -->
       <preference name="ShowSplashScreen" value="false" /> <!-- defaults to "true" -->

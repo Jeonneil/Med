@@ -1,5 +1,5 @@
 angular.module('starter.controllers', [])
-  .controller('TodoController', function($scope, $http, $cordovaDialogs,  $cordovaLocalNotification) {
+  .controller('TodoController', function($scope, $http, $cordovaDialogs, $cordovaLocalNotification) {
 
     $http({
         //  url:"http://192.168.8.101/medify/include/getdata.php",
@@ -24,14 +24,14 @@ angular.module('starter.controllers', [])
 
 
 
-    $scope.alert = function() {
-      $cordovaDialogs.beep(1);
-    };
+    // $scope.alert = function() {
+    //   $cordovaDialogs.beep(1);
+    // };
 
-    $scope.notif = function(){
+    $scope.notif =function(){
       var alarmTime = new Date();
       alarmTime.setMinutes(alarmTime.getMinutes() + 1);
-      $cordovaLocalNotification.beep({
+      $cordovaLocalNotification.notif({
         id: "12345",
         date: alarmTime,
         message: "Time to take your Medicine",
@@ -40,7 +40,7 @@ angular.module('starter.controllers', [])
       .then(function(){
         console.log("Nag Notif Na Sya Bes");
       })
-    };
+    }
 
     // FOR ADDMED
     $scope.addMed = function() {
@@ -149,7 +149,7 @@ angular.module('starter.controllers', [])
       document.getElementById('name').value = name;
       document.getElementById('quantity').value = quantity;
       $scope.id = id;
-    };
+    }
 
     $scope.edit1 = function(id, timealarm, medname) {
       $scope.add1 = true;
@@ -157,7 +157,7 @@ angular.module('starter.controllers', [])
       document.getElementById('timealarm').value = timealarm;
       document.getElementById('medname').value = medname;
       $scope.id = id;
-    };
+    }
 
     $scope.save_edit = function(id, name, quantity) {
 
@@ -190,7 +190,7 @@ angular.module('starter.controllers', [])
           document.getElementById('name').value = "";
           document.getElementById('quantity').value = "";
         })
-    };
+    }
 
     $scope.save_edit1 = function(id, timealarm, medname) {
 
@@ -223,21 +223,21 @@ angular.module('starter.controllers', [])
           document.getElementById('timealarm').value = "";
           document.getElementById('medname').value = "";
         })
-    };
+    }
 
     $scope.canceled = function() {
       $scope.add = false;
       $scope.cancel = false;
       document.getElementById('name').value = "";
       document.getElementById('quantity').value = "";
-    };
+    }
 
     $scope.canceled1 = function() {
       $scope.add1 = false;
       $scope.cancel1 = false;
       document.getElementById('timealarm').value = "";
       document.getElementById('medname').value = "";
-    };
+    }
 
     $scope.delete = function(id) {
       $http({
@@ -261,7 +261,7 @@ angular.module('starter.controllers', [])
               $scope.medlist = response['data'];
             })
         })
-    };
+    }
 
     $scope.delete1 = function(id) {
       $http({
@@ -285,7 +285,7 @@ angular.module('starter.controllers', [])
               $scope.timelist = response['data'];
             })
         })
-    };
+    }
   })
 
   .controller('SearchController', function($scope, $http) {
