@@ -1,5 +1,5 @@
 angular.module('starter.controllers', [])
-  .controller('TodoController', function($scope, $http,  $cordovaLocalNotification) {
+  .controller('TodoController', function($scope, $http, $cordovaDialogs,  $cordovaLocalNotification) {
 
     $http({
         //  url:"http://192.168.8.101/medify/include/getdata.php",
@@ -24,14 +24,14 @@ angular.module('starter.controllers', [])
 
 
 
-    // $scope.alert = function() {
-    //   $cordovaDialogs.beep(1);
-    // };
+    $scope.alert = function() {
+      $cordovaDialogs.beep(1);
+    };
 
     $scope.notif = function(){
       var alarmTime = new Date();
       alarmTime.setMinutes(alarmTime.getMinutes() + 1);
-      $cordovaLocalNotification.notif({
+      $cordovaLocalNotification.beep({
         id: "12345",
         date: alarmTime,
         message: "Time to take your Medicine",
