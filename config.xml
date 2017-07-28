@@ -65,7 +65,7 @@
     <plugin name="cordova-plugin-geolocation" />
     <plugin name="cordova-plugin-globalization" />
     <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="https://github.com/katzer/cordova-plugin-local-notifications.git" />
+    <gap:plugin name="cordova-plugin-local-notifications-mm" source="npm" />
     <plugin name="cordova-plugin-media" />
     <plugin name="cordova-plugin-network-information" />
     <plugin name="cordova-plugin-splashscreen" />
