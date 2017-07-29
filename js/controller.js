@@ -46,10 +46,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
         $scope.datatime = response['data'];
       })
     $scope.CurrentTime = function() {
-      var CurTime = new Date();
-      CurTime.getHours();
-      CurTime.getMinutes();
-      CurTime.getSeconds();
+      new Date().toLocaleTimeString('en-US', { hour12: false, 
+                                             hour: "numeric",
+                                             minute: "numeric"});
     }
     $scope.add = function(){
        if($scope.datatime == $scope.CurrentTime){
