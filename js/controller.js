@@ -28,23 +28,22 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordova.plugins.lo
 
   });
 })
-  .controller('TodoController', function($scope, $http, $cordovaLocalNotification) {
-    
+  .controller('TodoController', function($scope, $http,$cordovaDialogs, $cordovaLocalNotification) {
+
     $scope.$on("$cordovaLocalNotification:added", function(id, state, json) {
         alert("Added a notification");
     });
 
       $scope.add = function() {
-          var alarmTime = new Date();
-          alarmTime.setMinutes(alarmTime.getMinutes() + 1);
+
           $cordovaLocalNotification.add({
-              id: "1234",
-              date: alarmTime,
-              message: "This is a message",
-              title: "This is a title",
+
+      
+              message: "Time to take your medicine.",
+              title: "Medify",
               autoCancel: true,
-              sound: null
-          }).then(function () {
+              sound: true
+          }).then(function (response) {
               console.log("The notification has been set");
           });
       }
