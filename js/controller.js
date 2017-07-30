@@ -87,7 +87,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
       $cordovaLocalNotification.add({
 
-        message: "Time to take your medicine.",
+        message: "You already added one",
         title: "Medify",
         autoCancel: true,
         sound: true
