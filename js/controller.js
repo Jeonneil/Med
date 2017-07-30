@@ -54,19 +54,26 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
         hour: "numeric",
         minute: "numeric"
       });
+      var timealarm = document.getElementById('timealarm').value;
+      var medname = document.getElementById('medname').value;
 
-      $http({
-          //  url:"http://192.168.8.101/medify/include/getdata1.php",
-          url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
-          //  url:"http://localhost/medify/include/getdata1.php",
-          method: "GET"
-        })
-        .then(function(response) {
-          // console.log(response['data']);
-          $scope.timelist = response['data'];
-        })
 
-      if ( currentTime == $scope.timelist[0][alarm_time]) {
+
+          $http({
+              //  url:"http://192.168.8.101/medify/include/getdata1.php",
+              url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+              //  url:"http://localhost/medify/include/getdata1.php",
+              method: "GET"
+            })
+            .then(function(response) {
+              console.log(response['data']);
+              $scope.timelist = response['data'];
+
+            })
+
+
+
+      if ( currentTime == $scope.timelist[0]['alarm_time']) {
 
         $cordovaDialogs.beep(1);
 
@@ -189,16 +196,6 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
               // console.log(response['data']);
               $scope.timelist = response['data'];
 
-              $http({
-                  //  url:"http://192.168.8.101/medify/include/getdata.php",
-                  url: "http://www.jeonneilblanco.esy.es/php/getdatatime.php",
-                  //  url:"http://localhost/medify/include/getdata.php",
-                  method: "GET"
-                })
-                .then(function(response) {
-                  console.log(response['data']);
-                  $scope.time = response['data'];
-                })
             })
 
         })
