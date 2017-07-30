@@ -46,14 +46,16 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
       })
 
     $scope.CurrentTime = function() {
-      new Date().toLocaleTimeString('en-US', { hour12: false,
-                                             hour: "numeric",
-                                             minute: "numeric"});
+  var alarmTime = new Date();
+  alarmTime.getHours();
+  alarmTime.getMinutes();
     }
+
     $scope.add = function(){
        if($scope.timelist[0] == $scope.CurrentTime){
          $cordovaLocalNotification.add({
 
+          date: alarmTime,
            message: "Time to take your medicine.",
            title: "Medify",
            autoCancel: true,
