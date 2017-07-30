@@ -53,17 +53,30 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
     $scope.add = function(){
        if($scope.timelist[0] == $scope.CurrentTime){
+         var alarmTime = new Date();
+         alarmTime.getHours();
+         alarmTime.getMinutes();
+         
          $cordovaLocalNotification.add({
-
+          id: "1234",
           date: alarmTime,
            message: "Time to take your medicine.",
            title: "Medify",
            autoCancel: true,
            sound: true
-         })
-         $cordovaDialogs.beep(1);
+         }).then(function(response) {
+              console.log("The notification has been set");
+           });
        }
+
     }
+
+    $scope.isScheduled = function() {
+    $cordovaLocalNotification.isScheduled("1234").then(function(isScheduled) {
+    alert("Notification 1234 Scheduled: " + isScheduled);
+      });
+    }
+
     // $scope.add = function() {
     //   var alarmTime = new Date();
     //   alarmTime.setMinutes(alarmTime.getMinutes() + 1);
