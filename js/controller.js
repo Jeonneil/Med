@@ -60,7 +60,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
               method: "GET"
             })
             .then(function(response) {
-              // console.log(response['data']);
+              console.log(response['data']);
               $scope.timelist = response['data'];
             })
 
@@ -74,18 +74,12 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     }
 
     $scope.add = function(){
-       if($scope.timelist[0] == $scope.CurrentTime){
+       if($scope.timelist[0]['alarm_time'] == $scope.CurrentTime){
+         $scope.alert = function() {
+           $cordovaDialogs.beep(1);
+          }
 
-              $scope.alert = function() {
-               $cordovaDialogs.beep(1);
-              };
-        //  $cordovaLocalNotification.add({
-        //   date: alarmTime,
-        //    message: "Time to take your medicine.",
-        //    title: "Medify",
-        //    autoCancel: true,
-        //    sound: true
-        //  })
+
        }
 
     }
