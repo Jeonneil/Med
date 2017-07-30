@@ -34,24 +34,24 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
       alert("Added a notification");
     });
 
-
     $http({
-        //  url:"http://192.168.8.101/medify/include/getdata.php",
-        url: "http://www.jeonneilblanco.esy.es/php/getdatatime.php",
-        //  url:"http://localhost/medify/include/getdata.php",
+        //  url:"http://192.168.8.101/medify/include/getdata1.php",
+        url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+        //  url:"http://localhost/medify/include/getdata1.php",
         method: "GET"
       })
       .then(function(response) {
         // console.log(response['data']);
-        $scope.datatime = response['data'];
+        $scope.timelist = response['data'];
       })
+
     $scope.CurrentTime = function() {
-      new Date().toLocaleTimeString('en-US', { hour12: false, 
+      new Date().toLocaleTimeString('en-US', { hour12: false,
                                              hour: "numeric",
                                              minute: "numeric"});
     }
     $scope.add = function(){
-       if($scope.datatime == $scope.CurrentTime){
+       if($scope.timelist[0] == $scope.CurrentTime){
          $cordovaLocalNotification.add({
 
            message: "Time to take your medicine.",
