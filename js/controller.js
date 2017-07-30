@@ -48,61 +48,61 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     //   console.log(alarmTime);
     // }
 
-    $scope.add = function() {
-      var currentTime = new Date().toLocaleTimeString('en-US', {
-        hour12: false,
-        hour: "numeric",
-        minute: "numeric"
-      });
-      var timealarm = document.getElementById('timealarm').value;
-      var medname = document.getElementById('medname').value;
-
-
-
-          $http({
-              //  url:"http://192.168.8.101/medify/include/getdata1.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
-              //  url:"http://localhost/medify/include/getdata1.php",
-              method: "GET"
-            })
-            .then(function(response) {
-              console.log(response['data']);
-              $scope.timelist = response['data'];
-
-            })
-
-
-
-      if ( currentTime == $scope.timelist[0]['alarm_time']) {
-
-        $cordovaDialogs.beep(1);
-
-      }
-
-    }
-
-
-
     // $scope.add = function() {
-    //   var alarmTime = new Date();
-    //   alarmTime.setMinutes(alarmTime.getMinutes() + 1);
-    //   $cordovaLocalNotification.add({
-    //     id: "1234",
-    //     date: alarmTime,
-    //     message: "Time to take your medicine.",
-    //     title: "Medify",
-    //     autoCancel: true,
-    //     sound: true
-    //   }).then(function(response) {
-    //     console.log("The notification has been set");
+    //   var currentTime = new Date().toLocaleTimeString('en-US', {
+    //     hour12: false,
+    //     hour: "numeric",
+    //     minute: "numeric"
     //   });
+    //   var timealarm = document.getElementById('timealarm').value;
+    //   var medname = document.getElementById('medname').value;
+    //
+    //
+    //
+    //       $http({
+    //           //  url:"http://192.168.8.101/medify/include/getdata1.php",
+    //           url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+    //           //  url:"http://localhost/medify/include/getdata1.php",
+    //           method: "GET"
+    //         })
+    //         .then(function(response) {
+    //           console.log(response['data']);
+    //           $scope.timelist = response['data'];
+    //
+    //         })
+    //
+    //
+    //
+    //   if ( currentTime == $scope.timelist[0]['alarm_time']) {
+    //
+    //     $cordovaDialogs.beep(1);
+    //
+    //   }
+    //
     // }
     //
-    // $scope.isScheduled = function() {
-    //   $cordovaLocalNotification.isScheduled("1234").then(function(isScheduled) {
-    //     alert("Notification 1234 Scheduled: " + isScheduled);
-    //   });
-    // }
+
+
+    $scope.add = function() {
+      var alarmTime = new Date();
+      alarmTime.setMinutes(alarmTime.getMinutes() + 1);
+      $cordovaLocalNotification.add({
+        id: "1234",
+        date: alarmTime,
+        message: "Time to take your medicine.",
+        title: "Medify",
+        autoCancel: true,
+        sound: true
+      }).then(function(response) {
+        console.log("The notification has been set");
+      });
+    }
+
+    $scope.isScheduled = function() {
+      $cordovaLocalNotification.isScheduled("1234").then(function(isScheduled) {
+        alert("Notification 1234 Scheduled: " + isScheduled);
+      });
+    }
 
     $http({
         //  url:"http://192.168.8.101/medify/include/getdata.php",
