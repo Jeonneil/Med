@@ -68,14 +68,16 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     };
 
     $scope.CurrentTime = function() {
+
 var alarmTime = new Date().toLocaleTimeString('en-US', {
   hour12:false,
   hour:"numeric",
   minute:"numeric"});
+    console.log(alarmTime);
     }
 
     $scope.add = function(){
-       if($scope.timelist[0]['alarm_time'] == $scope.CurrentTime){
+       if( $scope.CurrentTime == $scope.timelist[0]['alarm_time']){
 
           $scope.alert = function() {
             $cordovaDialogs.beep(1);
