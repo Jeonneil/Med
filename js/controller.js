@@ -81,7 +81,6 @@ var alarmTime = new Date().toLocaleTimeString('en-US', {
             $cordovaDialogs.beep(1);
           };
 
-         })
        }
 
     }
