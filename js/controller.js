@@ -36,26 +36,43 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
 
 
-    $scope.CurrentTime = function() {
-
-var alarmTime = new Date().toLocaleTimeString('en-US', {
-  hour12:false,
-  hour:"numeric",
-  minute:"numeric"});
-    console.log(alarmTime);
-    }
-
-    // $scope.add = function(){
-    //
-    //    if( $scope.CurrentTime == $scope.time){
     //
     //
-    //         $cordovaDialogs.beep(1);
+    // $scope.CurrentTime = function() {
     //
-    //
-    //    }
-    //
+    //   var alarmTime = new Date().toLocaleTimeString('en-US', {
+    //     hour12: false,
+    //     hour: "numeric",
+    //     minute: "numeric"
+    //   });
+    //   console.log(alarmTime);
     // }
+
+    $scope.add = function() {
+      var currentTime = new Date().toLocaleTimeString('en-US', {
+        hour12: false,
+        hour: "numeric",
+        minute: "numeric"
+      });
+
+      $http({
+          //  url:"http://192.168.8.101/medify/include/getdata1.php",
+          url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+          //  url:"http://localhost/medify/include/getdata1.php",
+          method: "GET"
+        })
+        .then(function(response) {
+          // console.log(response['data']);
+          $scope.timelist = response['data'];
+        })
+
+      if ( currentTime == $scope.timelist[0][alarm_time]) {
+
+        $cordovaDialogs.beep(1);
+
+      }
+
+    }
 
 
 
@@ -169,16 +186,19 @@ var alarmTime = new Date().toLocaleTimeString('en-US', {
               method: "GET"
             })
             .then(function(response) {
-               console.log(response['data']);
+              // console.log(response['data']);
               $scope.timelist = response['data'];
 
-              if( $scope.CurrentTime == $scope.timelist[0]['alarm_time']){
-
-
-                   $cordovaDialogs.beep(1);
-
-
-              }
+              $http({
+                  //  url:"http://192.168.8.101/medify/include/getdata.php",
+                  url: "http://www.jeonneilblanco.esy.es/php/getdatatime.php",
+                  //  url:"http://localhost/medify/include/getdata.php",
+                  method: "GET"
+                })
+                .then(function(response) {
+                  console.log(response['data']);
+                  $scope.time = response['data'];
+                })
             })
 
         })
