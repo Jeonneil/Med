@@ -84,16 +84,17 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
 
     $scope.add = function() {
-      var alarmTime = new Date();
-      alarmTime.setMinutes(alarmTime.getMinutes() + 1);
+
       $cordovaLocalNotification.add({
-        id: "1234",
-        date: alarmTime,
+
         message: "Time to take your medicine.",
         title: "Medify",
         autoCancel: true,
         sound: true
-      }).then(function(response) {
+      })
+      $cordovaDialogs.beep(1)
+
+      .then(function(response) {
         console.log("The notification has been set");
       });
     }
@@ -166,6 +167,79 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
             })
         })
     };
+
+    $scope.edit = function(id, name, quantity) {
+      $scope.add = true;
+      $scope.cancel = true;
+      document.getElementById('name').value = name;
+      document.getElementById('quantity').value = quantity;
+      $scope.id = id;
+    }
+
+    $scope.save_edit = function(id, name, quantity) {
+
+
+      $http({
+          //  url:"http://192.168.8.101/medify/include/edit.php",
+          url: "http://www.jeonneilblanco.esy.es/php/edit.php",
+          //  url:"http://localhost/medify/include/edit.php",
+          method: "POST",
+          data: {
+            'id': id,
+            'addname': name,
+            'addquantity': quantity
+          }
+        })
+        .then(function(response) {
+          $http({
+              //  url:"http://192.168.8.101/medify/include/getdata.php",
+              url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
+              //  url:"http://localhost/medify/include/getdata.php",
+              method: "GET"
+            })
+            .then(function(response) {
+              // console.log(response['data']);
+              $scope.medlist = response['data'];
+            })
+          $scope.add = false;
+          $scope.cancel = false;
+          // console.log(response);
+          document.getElementById('name').value = "";
+          document.getElementById('quantity').value = "";
+        })
+    }
+
+    $scope.canceled = function() {
+      $scope.add = false;
+      $scope.cancel = false;
+      document.getElementById('name').value = "";
+      document.getElementById('quantity').value = "";
+    }
+
+    $scope.delete = function(id) {
+      $http({
+          //  url:"http://192.168.8.101/medify/include/delete.php",
+          url: "http://www.jeonneilblanco.esy.es/php/delete.php",
+          //  url:"http://localhost/medify/include/delete.php",
+          method: "POST",
+          data: {
+            'id': id
+          }
+        })
+        .then(function(response) {
+          $http({
+              //  url:"http://192.168.8.101/medify/include/getdata.php",
+              url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
+              //  url:"http://localhost/medify/include/getdata.php",
+              method: "GET"
+            })
+            .then(function(response) {
+              // console.log(response['data']);
+              $scope.medlist = response['data'];
+            })
+        })
+    }
+
     //FOR ALARMMED
     $scope.addalarm = function() {
       var timealarm = document.getElementById('timealarm').value;
@@ -236,13 +310,6 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     // },1000)
 
 
-    $scope.edit = function(id, name, quantity) {
-      $scope.add = true;
-      $scope.cancel = true;
-      document.getElementById('name').value = name;
-      document.getElementById('quantity').value = quantity;
-      $scope.id = id;
-    }
 
     $scope.edit1 = function(id, timealarm, medname) {
       $scope.add1 = true;
@@ -252,38 +319,6 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
       $scope.id = id;
     }
 
-    $scope.save_edit = function(id, name, quantity) {
-
-
-      $http({
-          //  url:"http://192.168.8.101/medify/include/edit.php",
-          url: "http://www.jeonneilblanco.esy.es/php/edit.php",
-          //  url:"http://localhost/medify/include/edit.php",
-          method: "POST",
-          data: {
-            'id': id,
-            'addname': name,
-            'addquantity': quantity
-          }
-        })
-        .then(function(response) {
-          $http({
-              //  url:"http://192.168.8.101/medify/include/getdata.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
-              //  url:"http://localhost/medify/include/getdata.php",
-              method: "GET"
-            })
-            .then(function(response) {
-              // console.log(response['data']);
-              $scope.medlist = response['data'];
-            })
-          $scope.add = false;
-          $scope.cancel = false;
-          // console.log(response);
-          document.getElementById('name').value = "";
-          document.getElementById('quantity').value = "";
-        })
-    }
 
     $scope.save_edit1 = function(id, timealarm, medname) {
 
@@ -318,13 +353,6 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
         })
     }
 
-    $scope.canceled = function() {
-      $scope.add = false;
-      $scope.cancel = false;
-      document.getElementById('name').value = "";
-      document.getElementById('quantity').value = "";
-    }
-
     $scope.canceled1 = function() {
       $scope.add1 = false;
       $scope.cancel1 = false;
@@ -332,29 +360,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
       document.getElementById('medname').value = "";
     }
 
-    $scope.delete = function(id) {
-      $http({
-          //  url:"http://192.168.8.101/medify/include/delete.php",
-          url: "http://www.jeonneilblanco.esy.es/php/delete.php",
-          //  url:"http://localhost/medify/include/delete.php",
-          method: "POST",
-          data: {
-            'id': id
-          }
-        })
-        .then(function(response) {
-          $http({
-              //  url:"http://192.168.8.101/medify/include/getdata.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
-              //  url:"http://localhost/medify/include/getdata.php",
-              method: "GET"
-            })
-            .then(function(response) {
-              // console.log(response['data']);
-              $scope.medlist = response['data'];
-            })
-        })
-    }
+
 
     $scope.delete1 = function(id) {
       $http({
