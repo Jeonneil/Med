@@ -34,38 +34,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
       alert("Added a notification");
     });
 
-    $scope.addalarm = function() {
-      var timealarm = document.getElementById('timealarm').value;
-      var medname = document.getElementById('medname').value;
 
-
-      $http({
-          //  url:"http://192.168.8.101/medify/include/add1.php",
-          url: "http://www.jeonneilblanco.esy.es/php/add1.php",
-          //  url:"http://localhost/medify/include/add1.php",
-          method: "POST",
-          data: {
-            'addtime': timealarm,
-            'alarmname': medname
-          }
-        })
-        .then(function(response) {
-          // console.log(response);
-          document.getElementById('timealarm').value = "";
-          document.getElementById('medname').value = "";
-          $http({
-              //  url:"http://192.168.8.101/medify/include/getdata1.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
-              //  url:"http://localhost/medify/include/getdata1.php",
-              method: "GET"
-            })
-            .then(function(response) {
-              // console.log(response['data']);
-              $scope.timelist = response['data'];
-            })
-
-        })
-    };
 
     $scope.CurrentTime = function() {
 
@@ -76,16 +45,17 @@ var alarmTime = new Date().toLocaleTimeString('en-US', {
     console.log(alarmTime);
     }
 
-    $scope.add = function(){
-       if( $scope.CurrentTime == $scope.timelist[0]['alarm_time']){
-
-
-            $cordovaDialogs.beep(1);
-      
-
-       }
-
-    }
+    // $scope.add = function(){
+    //
+    //    if( $scope.CurrentTime == $scope.time){
+    //
+    //
+    //         $cordovaDialogs.beep(1);
+    //
+    //
+    //    }
+    //
+    // }
 
 
 
@@ -173,7 +143,46 @@ var alarmTime = new Date().toLocaleTimeString('en-US', {
         })
     };
     //FOR ALARMMED
+    $scope.addalarm = function() {
+      var timealarm = document.getElementById('timealarm').value;
+      var medname = document.getElementById('medname').value;
 
+
+      $http({
+          //  url:"http://192.168.8.101/medify/include/add1.php",
+          url: "http://www.jeonneilblanco.esy.es/php/add1.php",
+          //  url:"http://localhost/medify/include/add1.php",
+          method: "POST",
+          data: {
+            'addtime': timealarm,
+            'alarmname': medname
+          }
+        })
+        .then(function(response) {
+          // console.log(response);
+          document.getElementById('timealarm').value = "";
+          document.getElementById('medname').value = "";
+          $http({
+              //  url:"http://192.168.8.101/medify/include/getdata1.php",
+              url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+              //  url:"http://localhost/medify/include/getdata1.php",
+              method: "GET"
+            })
+            .then(function(response) {
+               console.log(response['data']);
+              $scope.timelist = response['data'];
+
+              if( $scope.CurrentTime == $scope.timelist[0]['alarm_time']){
+
+
+                   $cordovaDialogs.beep(1);
+
+
+              }
+            })
+
+        })
+    };
 
     $http({
         // url:"http://192.168.8.101/medify/include/getdata.php",
