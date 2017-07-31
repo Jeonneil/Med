@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.localNotification', 'ngCordova.plugins', '$cordovaVibration'])
+angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.localNotification', 'ngCordova.plugins'])
   .run(function($ionicPlatform, $rootScope, $timeout) {
     $ionicPlatform.ready(function() {
       if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -101,7 +101,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
 
 
-    $scope.duration = 100;
+
         $scope.add = function() {
           var alarmTime = new Date();
           alarmTime.setMinutes(alarmTime.getMinutes() + 2);
@@ -115,7 +115,6 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
             sound: true
           })
           $cordovaDialogs.beep(1)
-          $cordovaVibration.vibrate($scope.duration);
           .then(function(response) {
             console.log("The notification has been set");
           });
