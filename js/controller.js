@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.localNotification', 'ngCordova.plugins'])
+angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.localNotification', 'ngCordova.plugins', $cordovaVibration])
   .run(function($ionicPlatform, $rootScope, $timeout) {
     $ionicPlatform.ready(function() {
       if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -83,27 +83,48 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     //
 
 
-    $scope.add = function() {
+    // $scope.add = function() {
+    //
+    //   $cordovaLocalNotification.add({
+    //
+    //     message: "You already added one",
+    //     title: "Medify",
+    //     autoCancel: true,
+    //     sound: true
+    //   })
+    //   $cordovaDialogs.beep(1)
+    //
+    //   .then(function(response) {
+    //     console.log("The notification has been set");
+    //   });
+    // }
 
-      $cordovaLocalNotification.add({
 
-        message: "You already added one",
-        title: "Medify",
-        autoCancel: true,
-        sound: true
-      })
-      $cordovaDialogs.beep(1)
 
-      .then(function(response) {
-        console.log("The notification has been set");
-      });
-    }
+    $scope.duration = 100;
+        $scope.add = function() {
+          var alarmTime = new Date();
+          alarmTime.setMinutes(alarmTime.getMinutes() + 2);
+          $cordovaLocalNotification.add({
+            id: "1234",
+            date: alarmTime,
+            message: "Time to take your medicine.",
+            title: "Medify",
+            autoCancel: true,
+            sound: true
+          })
+          $cordovaDialogs.beep(1)
+          $cordovaVibration.vibrate($scope.duration);
+          .then(function(response) {
+            console.log("The notification has been set");
+          });
+        }
 
-    $scope.isScheduled = function() {
-      $cordovaLocalNotification.isScheduled("1234").then(function(isScheduled) {
-        alert("Notification 1234 Scheduled: " + isScheduled);
-      });
-    }
+        $scope.isScheduled = function() {
+          $cordovaLocalNotification.isScheduled("1234").then(function(isScheduled) {
+            alert("Notification 1234 Scheduled: " + isScheduled);
+          });
+        }
 
     $http({
         //  url:"http://192.168.8.101/medify/include/getdata.php",
