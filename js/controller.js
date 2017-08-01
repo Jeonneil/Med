@@ -28,12 +28,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
     });
   })
-  .controller('TodoController', function($scope, $http, $cordovaDialogs, $cordovaLocalNotification) {
+  .controller('TodoController', function($scope, $http, $cordovaLocalNotification) {
 
     $scope.$on("$cordovaLocalNotification:added", function(id, state, json) {
       alert("Added a notification");
     });
-
 
 
 
@@ -99,30 +98,15 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     //     console.log("The notification has been set");
     //   });
     // }
-    $scope.add = function() {
-
-      $cordovaLocalNotification.add({
-
-        message: "You already added one.",
-        title: "Medify",
-        autoCancel: true,
-        sound: true
-      })
-       $cordovaDialogs.beep(1)
-
-      .then(function(response) {
-        console.log("The notification has been set");
-      });
-    }
 
 
 
 
-        $scope.addm = function() {
+        $scope.add = function() {
           var alarmTime = new Date();
           alarmTime.setMinutes(alarmTime.getMinutes() + 2);
 
-          $cordovaLocalNotification.addm({
+          $cordovaLocalNotification.add({
             id: "1234",
             date: alarmTime,
             message: "Time to take your medicine.",
@@ -204,16 +188,6 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
             })
         })
     };
-    $http({
-        // url:"http://192.168.8.101/medify/include/getdata.php",
-        url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
-        // url:"http://localhost/medify/include/getdata.php",
-        method: "GET"
-      })
-      .then(function(response) {
-        // console.log(response['data']);
-        $scope.medlist = response['data'];
-      })
 
     $scope.edit = function(id, name, quantity) {
       $scope.add = true;
@@ -322,7 +296,16 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
         })
     };
 
-
+    $http({
+        // url:"http://192.168.8.101/medify/include/getdata.php",
+        url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
+        // url:"http://localhost/medify/include/getdata.php",
+        method: "GET"
+      })
+      .then(function(response) {
+        // console.log(response['data']);
+        $scope.medlist = response['data'];
+      })
 
     $http({
         //  url:"http://192.168.8.101/medify/include/getdata1.php",
