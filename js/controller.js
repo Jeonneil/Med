@@ -101,7 +101,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     // }
     $scope.add1 = function() {
 
-      $cordovaLocalNotification.add({
+      $cordovaLocalNotification.add1({
 
         message: "You already added one.",
         title: "Medify",
