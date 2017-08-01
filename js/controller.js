@@ -98,6 +98,21 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     //     console.log("The notification has been set");
     //   });
     // }
+    $scope.add1 = function() {
+
+      $cordovaLocalNotification.add({
+
+        message: "You already added one.",
+        title: "Medify",
+        autoCancel: true,
+        sound: true
+      })
+       $cordovaDialogs.beep(1)
+
+      .then(function(response) {
+        console.log("The notification has been set");
+      });
+    }
 
 
 
@@ -114,7 +129,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
             autoCancel: true,
             sound: true
           })
-          $cordovaDialogs.beep(1)
+
           .then(function(response) {
             console.log("The notification has been set");
           });
