@@ -99,9 +99,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     //     console.log("The notification has been set");
     //   });
     // }
-    $scope.add1 = function() {
+    $scope.addm = function() {
 
-      $cordovaLocalNotification.add1({
+      $cordovaLocalNotification.addm({
 
         message: "You already added one.",
         title: "Medify",
