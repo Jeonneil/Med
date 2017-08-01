@@ -99,9 +99,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     //     console.log("The notification has been set");
     //   });
     // }
-    $scope.addm = function() {
+    $scope.add = function() {
 
-      $cordovaLocalNotification.addm({
+      $cordovaLocalNotification.add({
 
         message: "You already added one.",
         title: "Medify",
@@ -118,11 +118,11 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
 
 
-        $scope.add = function() {
+        $scope.addm = function() {
           var alarmTime = new Date();
           alarmTime.setMinutes(alarmTime.getMinutes() + 2);
 
-          $cordovaLocalNotification.add({
+          $cordovaLocalNotification.addm({
             id: "1234",
             date: alarmTime,
             message: "Time to take your medicine.",
@@ -204,6 +204,16 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
             })
         })
     };
+    $http({
+        // url:"http://192.168.8.101/medify/include/getdata.php",
+        url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
+        // url:"http://localhost/medify/include/getdata.php",
+        method: "GET"
+      })
+      .then(function(response) {
+        // console.log(response['data']);
+        $scope.medlist = response['data'];
+      })
 
     $scope.edit = function(id, name, quantity) {
       $scope.add = true;
@@ -312,16 +322,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
         })
     };
 
-    $http({
-        // url:"http://192.168.8.101/medify/include/getdata.php",
-        url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
-        // url:"http://localhost/medify/include/getdata.php",
-        method: "GET"
-      })
-      .then(function(response) {
-        // console.log(response['data']);
-        $scope.medlist = response['data'];
-      })
+
 
     $http({
         //  url:"http://192.168.8.101/medify/include/getdata1.php",
