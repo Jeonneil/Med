@@ -36,6 +36,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
 
 
+
     //
     //
     // $scope.CurrentTime = function() {
