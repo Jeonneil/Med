@@ -149,9 +149,9 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
 
 
-    // $scope.alert = function() {
-    //   $cordovaDialogs.beep(1);
-    // };
+    $scope.alert = function() {
+      $cordovaDialogs.beep(1);
+    };
 
 
 
