@@ -1,6 +1,6 @@
 <?php
 
-  $conn = mysqli_connect('localhost','root','','medify');
+  $conn = mysqli_connect('localhost','id2291191_root','Admin123!','id2291191_medify');
 
 if (isset($_SERVER['HTTP_ORIGIN'])) {
         header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");

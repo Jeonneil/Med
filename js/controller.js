@@ -128,7 +128,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
     $http({
         //  url:"http://192.168.8.101/medify/include/getdata.php",
-        url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
+        url: "https://medify.000webhostapp.com/getdata.php",
         //  url:"http://localhost/medify/include/getdata.php",
         method: "GET"
       })
@@ -138,7 +138,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
       })
     $http({
         //  url:"http://192.168.8.101/medify/include/getdata1.php",
-        url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+        url: "https://medify.000webhostapp.com/getdata1.php",
         //  url:"http://localhost/medify/include/getdata1.php",
         method: "GET"
       })
@@ -164,7 +164,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
       $http({
           //  url:"http://192.168.8.101/medify/include/add.php",
-          url: "http://www.jeonneilblanco.esy.es/php/add.php",
+          url: "https://medify.000webhostapp.com/add.php",
           //  url:"http://localhost/medify/include/add.php",
           method: "POST",
           data: {
@@ -178,7 +178,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
           document.getElementById('quantity').value = "";
           $http({
               //  url:"http://192.168.8.101/medify/include/getdata.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
+              url: "https://medify.000webhostapp.com/getdata.php",
               //  url:"http://localhost/medify/include/getdata.php",
               method: "GET"
             })
@@ -202,7 +202,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
       $http({
           //  url:"http://192.168.8.101/medify/include/edit.php",
-          url: "http://www.jeonneilblanco.esy.es/php/edit.php",
+          url: "https://medify.000webhostapp.com/edit.php",
           //  url:"http://localhost/medify/include/edit.php",
           method: "POST",
           data: {
@@ -214,7 +214,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
         .then(function(response) {
           $http({
               //  url:"http://192.168.8.101/medify/include/getdata.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
+              url: "https://medify.000webhostapp.com/getdata.php",
               //  url:"http://localhost/medify/include/getdata.php",
               method: "GET"
             })
@@ -240,7 +240,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     $scope.delete = function(id) {
       $http({
           //  url:"http://192.168.8.101/medify/include/delete.php",
-          url: "http://www.jeonneilblanco.esy.es/php/delete.php",
+          url: "https://medify.000webhostapp.com/delete.php",
           //  url:"http://localhost/medify/include/delete.php",
           method: "POST",
           data: {
@@ -250,7 +250,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
         .then(function(response) {
           $http({
               //  url:"http://192.168.8.101/medify/include/getdata.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
+              url: "https://medify.000webhostapp.com/getdata.php",
               //  url:"http://localhost/medify/include/getdata.php",
               method: "GET"
             })
@@ -269,7 +269,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
       $http({
           //  url:"http://192.168.8.101/medify/include/add1.php",
-          url: "http://www.jeonneilblanco.esy.es/php/add1.php",
+          url: "https://medify.000webhostapp.com/add1.php",
           //  url:"http://localhost/medify/include/add1.php",
           method: "POST",
           data: {
@@ -283,7 +283,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
           document.getElementById('medname').value = "";
           $http({
               //  url:"http://192.168.8.101/medify/include/getdata1.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+              url: "https://medify.000webhostapp.com/getdata1.php",
               //  url:"http://localhost/medify/include/getdata1.php",
               method: "GET"
             })
@@ -298,7 +298,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
     $http({
         // url:"http://192.168.8.101/medify/include/getdata.php",
-        url: "http://www.jeonneilblanco.esy.es/php/getdata.php",
+        url: "https://medify.000webhostapp.com/getdata.php",
         // url:"http://localhost/medify/include/getdata.php",
         method: "GET"
       })
@@ -309,7 +309,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
     $http({
         //  url:"http://192.168.8.101/medify/include/getdata1.php",
-        url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+        url: "https://medify.000webhostapp.com/getdata1.php",
         //  url:"http://localhost/medify/include/getdata1.php",
         method: "GET"
       })
@@ -346,7 +346,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
       $http({
           //  url:"http://192.168.8.101/medify/include/edit1.php",
-          url: "http://www.jeonneilblanco.esy.es/php/edit1.php",
+          url: "https://medify.000webhostapp.com/edit1.php",
           //  url:"http://localhost/medify/include/edit1.php",
           method: "POST",
           data: {
@@ -358,7 +358,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
         .then(function(response) {
           $http({
               //  url:"http://192.168.8.101/medify/include/getdata1.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+              url: "https://medify.000webhostapp.com/getdata1.php",
               //  url:"http://localhost/medify/include/getdata1.php",
               method: "GET"
             })
@@ -386,7 +386,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
     $scope.delete1 = function(id) {
       $http({
           //  url:"http://192.168.8.101/medify/include/delete1.php",
-          url: "http://www.jeonneilblanco.esy.es/php/delete1.php",
+          url: "https://medify.000webhostapp.com/delete1.php",
           //  url:"http://localhost/medify/include/delete1.php",
           method: "POST",
           data: {
@@ -396,7 +396,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
         .then(function(response) {
           $http({
               //  url:"http://192.168.8.101/medify/include/getdata1.php",
-              url: "http://www.jeonneilblanco.esy.es/php/getdata1.php",
+              url: "https://medify.000webhostapp.com/getdata1.php",
               //  url:"http://localhost/medify/include/getdata1.php",
               method: "GET"
             })
@@ -412,7 +412,7 @@ angular.module('starter.controllers', ['ionic', 'ngCordova', 'ngCordova.plugins.
 
     $http({
         // url:"http://192.168.8.101/medify/include/search.php",
-        url: "http://www.jeonneilblanco.esy.es/php/search.php",
+        url: "https://medify.000webhostapp.com/search.php",
         // url:"http://localhost/medify/include/search.php",
         method: "GET"
       })
